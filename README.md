@@ -60,13 +60,13 @@ python src/Final_proxy_evaluation.py --species arabidopsis --seq_type donor --mo
 The diffusion model uses a novel frequency-guided blending strategy that combines model predictions with nucleotide frequency priors:
 
 ```
-prediction = λ × model_output + (1-λ) × frequency_prior
+prediction = (1-λ) × model_output + λ × frequency_prior
 ```
 
-**Lambda (λ) values tested:** `[0.0, 0.25, 0.5, 0.75, 1.0]`
-- λ = 0.0: Pure frequency-based
+**Lambda (λ) values tested:** `[0.0, 0.25, 0.5, 0.75]`
+- λ = 0.0: Pure model-based
 - λ = 0.5: Balanced (default)
-- λ = 1.0: Pure model-based
+- λ = 0.75: More frequency-guided
 
 **Diffusion settings:** 50 timesteps with linear noise schedule
 
