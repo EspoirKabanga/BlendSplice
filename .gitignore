@@ -13,16 +13,9 @@ baseline_saved_models/
 augmented_saved_models/
 checkpoint*.pth
 
-# ============================================================================
-# GENERATED SEQUENCES (Large files - do not commit)
-# ============================================================================
-*_generated_sequences/
-*_generated_seq*/
-GAN_generated_sequences/
-VAE_generated_sequences/
-WG_GAN_generated_sequences/
-Diffusion_generated_seq*/
-supplementary_sequences/
+# Generated sequences (gitignored — large files; README tracked)
+generated_sequences/*
+!generated_sequences/README.md
 
 # ============================================================================
 # RESULTS & LOGS
@@ -39,7 +32,10 @@ logs/
 # ============================================================================
 # DATA FILES (Large datasets - do not commit)
 # ============================================================================
-data/
+data/*
+!data/README.md
+generated_sequences/*
+!generated_sequences/README.md
 *.txt
 *.fasta
 *.fa

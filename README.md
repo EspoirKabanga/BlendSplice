@@ -9,7 +9,7 @@ BlendSplice implements three generative models to create biologically realistic 
 - **VAE** (Variational Autoencoder)
 - **Diffusion Model** with frequency-guided blending
 
-Supports both **Arabidopsis thaliana** and **Homo sapiens** genomes, for donor (GT) and acceptor (AG) splice sites.
+Supports **Arabidopsis thaliana**, **Homo sapiens**, and **Danio rerio**, for donor (GT) and acceptor (AG) splice sites at **402 bp** and **2002 bp** context lengths.
 
 ## Installation
 
@@ -53,6 +53,14 @@ python src/direct_analysis.py --generated_file <path> --real_file <path> --seq_t
 python src/Final_proxy_evaluation.py --species arabidopsis --seq_type donor --model_type GAN
 ```
 
+**Revision direct evaluation** (multi-species, multi-λ, comprehensive figures):
+
+```bash
+python src/revision_supplementary_comprehensive_figures.py --context all --sample-size 20000
+python src/direct_revision_ppt_analysis.py
+python src/test_sequence_spliceai.py --context 2002
+```
+
 ## Repository Structure
 
 ```
@@ -63,9 +71,15 @@ BlendSplice/
 │   ├── diffusion_baseline.py        # Diffusion with blending
 │   ├── indirect_models.py           # SpliceRover & Spliceator
 │   ├── direct_analysis.py           # Direct evaluation
+│   ├── direct_revision_*.py         # Revision direct evaluation
+│   ├── revision_supplementary_*.py  # Supplementary figure pipelines
+│   ├── test_sequence_spliceai.py    # SpliceAI detection-rate benchmark
 │   └── proxy*.py                    # Proxy model utilities
+├── scripts/
+│   └── organize_generated_sequences.py
 ├── examples/                        # Example scripts
-├── data/                            # Data directory (see data/README.md)
+├── data/                            # Real sequences & annotations (see data/README.md)
+├── generated_sequences/             # Synthetic outputs (see generated_sequences/README.md)
 └── models/                          # Saved models directory
 ```
 
